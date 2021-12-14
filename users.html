@@ -1,0 +1,41 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <h1>
+        Users
+    </h1>
+    <table>
+        <thead>
+           <td>Id</td>
+           <td>Username</td>
+           <td>Password</td>
+           <td>Admin</td>
+        </thead>
+        
+        {% for user in users %}
+           <tr>
+              <td>{{user[0]}}</td>
+              <td><a href=/users/{{user[1]}}>{{user[1]}}</a></td>
+               <td>{{user[2]}}</td>
+              <td>{{user[3]}}</td>
+           </tr>
+        {% endfor %}
+     </table>
+
+    <h1>
+        Add user
+    </h1>
+    <form method=post action="/add_user">
+        User: <input type=text name=username>
+        Password: <input type=text name=password>
+        Admin: <input type=checkbox name=admin>
+        <input type=submit>
+    </form>
+
+    <a href=/>Index</a>
+</body>
+
+</html>
